@@ -5,7 +5,10 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const mongoose = require('mongoose')
 require('dotenv').config()
+<<<<<<< HEAD
 const blogRoutes = require('./routes/blog')
+=======
+>>>>>>> daa021f... server setup, configurations, db connection
 
 // app
 const app = express()
@@ -30,7 +33,13 @@ if(process.env.NODE_ENV === 'development') {
 
 
 // routes
+<<<<<<< HEAD
 app.use('/api', blogRoutes)
+=======
+app.get('/api', (req, res) => {
+    res.json({time: Date().toString()})
+})
+>>>>>>> daa021f... server setup, configurations, db connection
 
 // port
 const port = process.env.PORT || 8000
