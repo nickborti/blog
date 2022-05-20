@@ -24,6 +24,10 @@ const userSchema = new mongoose.Schema({
         unique: true,
         lowercase: true
     },
+    profile: {
+        type: String,
+        required: true,
+    },
     hashed_password: {
         type: String,
         required: true
@@ -32,7 +36,7 @@ const userSchema = new mongoose.Schema({
     about: String,
     role: {
         type: Number,
-        trim: true
+        default: 0
     },
     photo: {
         data: Buffer,
@@ -75,7 +79,7 @@ userSchema.methods = {
     },
 
     makeSalt: function() {
-        return Math.round(new Date().valueOf() * Math.random()) + ''
+        return Math.round(new Date().valueOf() * Math.random())
     }
 }
 

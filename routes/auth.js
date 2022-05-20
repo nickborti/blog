@@ -11,7 +11,7 @@ router.post('/signin', userSigninValidator, runValidation, signin)
 router.get('/signout', signout)
 
 router.get('/secret', requireSignin, (req, res) => {
-    res.json({message: 'you have access'})
+    res.json({user: req.auth})
 })
 
 module.exports = router
